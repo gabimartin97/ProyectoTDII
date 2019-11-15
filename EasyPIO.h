@@ -1,3 +1,6 @@
+#ifndef EASYPIO_H
+#define EASYPIO_H
+
 #include <fcntl.h>
 #include <sys/types.h>
 #include <sys/stat.h>
@@ -17,6 +20,8 @@ volatile unsigned int *gpio; //Puntero a la base de gpio
 #define GPLEV ((volatile unsigned int*) (gpio + 13))
 #define INPUT 0
 #define OUTPUT 1
+
+
 
 void pioInit(){
 	int mem_fd;
@@ -60,4 +65,5 @@ int digitalRead(int pin){
 
 }
 
+#endif
 
