@@ -11,7 +11,8 @@ a. El valor inicial correspondiente a la velocidad de las secuencias deberá ing
 a. Generar una opción en el programa que permita establecer dos modos de trabajo: local y remoto. En modo local las secuencias de luces se ejecutarán en los leds que se encuentran en el hardware adicionado a la placa Raspberry donde se ejecuta el programa. En modo remoto las secuencias se ejecutarán sobre el hardware adicional colocado en otra Raspberry y conectada a la que ejecuta el programa mediante un cable serie RS-232. Se podrá usar el mismo programa para implementar esta opción en las dos Raspberry o realizar uno principal y otro secundario.\
 a. Como opción genere una sección destinada a establecer las velocidades iniciales de las secuencias realizando el ajuste de los potenciómetros.\
 
-
+\ **ESTADO DEL PROYECTO (15/11/19): EL ACCESO CON CONTRASEÑA FUNCIONA CORRECTAMENTE, EL MENÚ YA CONTIENE TODAS LAS OPCIONES Y YA SE PUEDE ACCEDER A LA FUNCION AUTO FANTÁSTICO, EJECUTARLA, MODIFICAR SU VELOCIDAD Y DETENERLA AL PRESIONAR UNA TECLA. EL ARCHIVO MAKEFILE FUE CREADO, SI BIEN NO ESTÁ PROLIJO FUNCIONA CORRECTAMENTE.\
+\FALTA IMPLEMENTAR EL RESTO DE FUNCIONES SIGUIENDO EL MODELO DE AUTO FANTASTICO Y VER COMO HACER PARA EVITAR EL PROBLEMA DE "DECLARACION MULTIPLE DE VARIABLES" ENTRE ELLAS. FALTA OBTENER LA LECUTRA DEL POTENCIOMETRO DEL ADC Y COLOCARLA COMO BASE PARA TODAS LAS FUNCIONES DE LUCES. FALTA OBTENER VARIABLES PARTICULARES DE DELAY PARA CADA FUNCION DE LUCES (RETORNARLAS AL MAIN??). FALTA CONFIGURAR EL MODO DE TRABAJO REMOTO Y HACER EL PROGRAMA CLON SECUNDARIO PARA LA SEGUNDA RASPBERRY.**
 
 
 o	8 FUNCIONES DE LAS SECUENCIAS DE LUCES\
@@ -20,7 +21,7 @@ o	MENU COMPLETO CON CONTRASEÑA\
 
 o	VARIABLES DE VELOCIDAD PARA CADA SECUENCIA\
 El valor inicial del ADC +- Offset\
-¿Cómo incrementarlas/decrementarlas? ¿Cómo leer instantáneamente los pulsadores?\
+¿Cómo leer instantáneamente el teclado sin que lo afecte el delay?\
 
 o	MODO DE TRABAJO REMOTO\
 Comunicar 2 raspberry con RS232. Hacer programa secundario que solo lea serie y ejecute secuencia de luces\
