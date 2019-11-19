@@ -13,25 +13,15 @@
 #include <stdio.h>
 #include "EasyPIO.h"
 #include <unistd.h>
-#define LED1 23
-#define LED2 24
-#define LED3 25
-#define LED4 12
-#define LED5 16
-#define LED6 20
-#define LED7 21
-#define LED8 26
-#define sw1  17
-#define sw2  27
+#include "compartidas.h"
+				
+#define SPEED 100 		//Setear la velocidad base del barrido. !La tiene que dar el conversor AD!
+
 int leds[8]={LED1,LED2,LED3,LED4,LED5,LED6,LED7,LED8};
-				/*todos estos define son prolijos pero es mucho codigo al pedo */
-#define SPEED 1 		//Setear la velocidad base del barrido. !La tiene que dar el conversor AD!
-int incremento=100; 		//Las flechas arriba y abajo incrementarán la velocidad del bucle
+int delayFantastico=150; 		//Las flechas arriba y abajo incrementarán la velocidad del bucle
 void loopFantastico();
 void apagar();
 void menufantastico();
-
-
 
 /*....................................main............................*/
 
@@ -66,57 +56,15 @@ do{
 		for (i=0;i<8;i++){
 			digitalWrite(leds[i],1);
 			if(i!=0)digitalWrite(leds[i-1],0);
-			/*-----------------------------------------------------------------------------------------*/
-			if(kbhit()){ 
-				if((tecla=readch())=='\033'){
-				readch(); // Nos deshacemos de [. ver como funciona el readch() de una telca especial
-				tecla=readch();}
-				switch(tecla){
-				case 'q': break; //Cuando se presiona una telca y es la tecla q, sale del bucle
-				
-				case 'A':
-				if(incremento>1)incremento=incremento - 10;
-				break;
-				
-				case 'B':
-				if(incremento < 1000)incremento= incremento +10;
-				break;
-				
-				default:
-				break;
-			 }
-			}
-			/*-----------------------------------------------------------------------------------------*/
-			if(i!=0)usleep((SPEED + incremento)  * 1000); //Delay a excepcion de los extremos
+			if(i!=0)tecla=CheckandDelay(&delayFantastico);
 			if(tecla=='q') break;
 		}
 		
 		for (i=7;i>(-1);i--){
 			if(tecla=='q') break;
-			/*-----------------------------------------------------------------------------------------*/
-			if(kbhit()){
-			if((tecla=readch())=='\033'){
-				readch(); // Nos deshacemos de [. ver como funciona el readch() de una telca especial
-				tecla=readch();}
-				switch(tecla){
-				case 'q': break; //Cuando se presiona una telca y es la tecla q, sale del bucle
-				
-				case 'A':
-				if(incremento>1)incremento=incremento - 10;
-				break;
-				
-				case 'B':
-				if(incremento < 1000)incremento= incremento +10;
-				break;
-				
-				default:
-				break;
-			 }
-			}
-			/*-----------------------------------------------------------------------------------------*/
 			if(i!=7)digitalWrite(leds[i+1],0);
 			digitalWrite(leds[i],1);
-			if(i!=7)usleep((SPEED + incremento) * 1000); 	//Delay a excepcion de los extremos
+			if(i!=7)tecla=CheckandDelay(&delayFantastico);	//Delay a excepcion de los extremos
 			if(tecla=='q') break; 				//Cuando se presiona una telca y es la tecla q, sale del bucle
 		}
 
