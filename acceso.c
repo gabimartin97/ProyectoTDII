@@ -8,7 +8,7 @@
 #include <termios.h>
 #include <unistd.h>
 
-#define password "1234" // Setear la contraseña
+#define password "12345" // Setear la contraseña
 #define maxlenght 20 //Máxima lognitud del vector contraseña
 
 struct termios orig_termios; //Declaracion de la variable orig_termios de la estructura de tipo termios
@@ -68,12 +68,12 @@ int acceso()
 		entry[i+1]='\0'; //Colocamos final de cadena
 		i=0;
 	
-		if(n==0) break;
+		if(n==1) break;
 		n=n-1;// decrecen los intentos para acertarar
 		}
 	  
 	  //si se acabaron los intentos
-  if(n==0 && strcmp(entry,pass)!= 0){
+  if(n==1 && strcmp(entry,pass)!= 0){
 		  printf("\n Se acabaron los intentos");
 		  return 0;
 		 }
