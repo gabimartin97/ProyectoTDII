@@ -61,7 +61,7 @@ submenu(){  												//Menu para las funciones de luces
 			break;
 			
 			case '3':
-			//ElChoque();
+			ElChoque();
 			break;
 			
 			case '5':

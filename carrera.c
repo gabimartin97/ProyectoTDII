@@ -1,19 +1,17 @@
 /* LA CARRERA:*/
 
-
 #include <stdio.h>
 #include "EasyPIO.h"
 #include <unistd.h>
 #include "compartidas.h"
 #include "kbhit.h"
 
-
+int delayCarrera=150;
 void loopcarrera();
 void menucarrera();
 
-//int leds[8]={LED1,LED2,LED3,LED4,LED5,LED6,LED7,LED8};
 
-/*....................................main............................*/
+/*....................................Carrera............................*/
 void Carrera(){
         pioInit(); //No olvidarse de pioInit
         pinMode(LED1,OUTPUT);
@@ -25,16 +23,19 @@ void Carrera(){
         pinMode(LED7,OUTPUT);
         pinMode(LED8,OUTPUT);
         pinMode(sw1,INPUT);
-	menucarrera();
+        
+        menucarrera();
         loopcarrera();
         apagar();
         system("clear");
 }
-/*....................................main............................*/
+/*....................................Carrera............................*/
+
+
 void loopcarrera() {
-int delayCarrera=150;
-int i,k,a;
-int c=0;
+int i,k;
+int c;
+//int a;
 int tabla[]={   0b00000001,
 				0b00000001,
                 0b00000010,
@@ -59,29 +60,26 @@ do{
 for(k=0;k<16;k++){
 
         for(i=0;i<8;i++){
-                c = 2<<i;
-                a=0b00000000+c;
-                digitalWrite(leds[i],tabla[k] & (a));
+                c = 0b00000001 << i;   //Voy desplazando un 1 en cada iteracion  
+                //a = 0b00000000 + c;
+                digitalWrite(leds[i],tabla[k] & (c));  //hago una AND entre el 1 y el valor de la tabla correspondiente
 }
+                    
 
-                     
-
-tecla=CheckandDelay(&delayCarrera);
-
-c=0;
-if(tecla=='q')break;
+        tecla=CheckandDelay(&delayCarrera); //Llamo a la funcion CheckandDelay que me retorna la tecla presionada sin importar el delay
+        if(tecla=='q')break;
 }
 }while(tecla != 'q');
-close_keyboard();
+close_keyboard(); //Para kbhit()
 }
+
 void menucarrera(){
         system("clear");
 	printf("\n-------------------------------------------\n");
-	printf("EJECUTANDO LA CARRERA");
+	printf("             EJECUTANDO LA CARRERA");
 	printf("\n-------------------------------------------\n");
-	printf("Pulse la tecla q para detener la secuencia \n");
+	printf("Pulse la tecla Q para detener la secuencia \n");
 	printf("Puede variar la velocidad con las flechas arriba y abajo \n");
 }
-
 
 

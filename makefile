@@ -1,8 +1,8 @@
 CC=gcc
-CFLAGS=-Wall -I.
+CFLAGS= -I.
 
-proyecto: main.o menu.o acceso.o AutoFantastico.o kbhit.o CheckandDelay.o carrera.o EasyPIO.o compartidas.o
-	$(CC) $(CFLAGS) -o proyecto main.o menu.o acceso.o AutoFantastico.o kbhit.o CheckandDelay.o carrera.o EasyPIO.o compartidas.o
+proyecto: main.o menu.o acceso.o AutoFantastico.o kbhit.o CheckandDelay.o carrera.o EasyPIO.o compartidas.o ElChoque.o
+	$(CC) $(CFLAGS) -o proyecto main.o menu.o acceso.o AutoFantastico.o kbhit.o CheckandDelay.o carrera.o EasyPIO.o compartidas.o ElChoque.o
 
 main.o: main.c
 	$(CC) $(CFLAGS) -c main.c -o main.o
@@ -33,6 +33,9 @@ EasyPIO.o: EasyPIO.c
 
 compartidas.o: compartidas.c
 	$(CC) $(CFLAGS) -c -o compartidas.o compartidas.c
+
+ElChoque.o: ElChoque.c
+	$(CC) $(CFLAGS) -c -o ElChoque.o ElChoque.c
 
 .PHONY: clean
 clean:

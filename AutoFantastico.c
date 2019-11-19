@@ -76,9 +76,9 @@ do{
 void menufantastico(){
 	system("clear");
 	printf("\n-------------------------------------------\n");
-	printf("EJECUTANDO AUTO FANTASTICO");
+	printf("          EJECUTANDO AUTO FANTASTICO");
 	printf("\n-------------------------------------------\n");
-	printf("Pulse la tecla q para detener la secuencia \n");
+	printf("Pulse la tecla Q para detener la secuencia \n");
 	printf("Puede variar la velocidad con las flechas arriba y abajo \n");
 }
 
