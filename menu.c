@@ -57,7 +57,7 @@ submenu(){  												//Menu para las funciones de luces
 			break;
 			
 			case '2':
-			//Carrera();
+			Carrera();
 			break;
 			
 			case '3':

@@ -5,6 +5,14 @@
  * y segun cuantos ciclos de bucle realize ese delay de 10 ms se irá acumulando hasta lograr el
  * delay total deseado. debido a  que cada secuencia de luces tiene su propio delay que debe conservarse
  * esta funcion trabaja con punteros */
+ /*ESTA  FUNCION UTILIZA UNA FUNCION/PROGRAMA QUE SAQUE DE INTERNET: kbhit(), HACE REFERENCIA A
+ * KEYBOARD HIT. LA MISMA DEVUELVE UN 1 CUANDO EL USUARIO PULSA CUALQUIER TECLA DEL TECLADO.
+ * ES UTIL PORQUE SI UTILIZAMOS GETCHAR() EL PROGRAMA QUEDA CONGELADO ESPERANDO QUE PULSEMOS ALGO 
+ * Y LA SECUENCIA DE LUCES SE CONGELA TAMBIEN. CON kbhit() EL PROGRAMA NO SE DETIENE
+ * ADEMÁS TAMBIEN INCLUYE LA FUNCION init_keyboard() close_keyboard() que lo que hacen es manejo de
+ * ficheros en termios.h (como la funcion acceso) para desactivar el modo canonico y el echo
+ * POR ULTIMO LA FUNCION readch() TAMBIEN FORMA PARTE DE ESTE PAQUETE Y DEVUELVE EL VALOR DE LA TECLA
+ * PULSADA. CUALQUIER COSA VER kbhit.h y kbhit.c */
 
 #include "kbhit.h"
 #include <stdio.h>

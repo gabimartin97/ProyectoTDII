@@ -15,12 +15,11 @@
 #include <unistd.h>
 #include "compartidas.h"
 				
-#define SPEED 100 		//Setear la velocidad base del barrido. !La tiene que dar el conversor AD!
 
-int leds[8]={LED1,LED2,LED3,LED4,LED5,LED6,LED7,LED8};
+
+
 int delayFantastico=150; 		//Las flechas arriba y abajo incrementarán la velocidad del bucle
 void loopFantastico();
-void apagar();
 void menufantastico();
 
 /*....................................main............................*/
@@ -73,17 +72,6 @@ do{
 	close_keyboard();		//Para kbhit()
 }
 
-void apagar(){ 					//Funcion que apaga todos los leds
-	digitalWrite(LED1,0);
-        digitalWrite(LED2,0);
-        digitalWrite(LED3,0);
-        digitalWrite(LED4,0);
-        digitalWrite(LED5,0);
-        digitalWrite(LED6,0);
-        digitalWrite(LED7,0);
-        digitalWrite(LED8,0);
-
-}
 
 void menufantastico(){
 	system("clear");
