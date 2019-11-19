@@ -48,6 +48,7 @@ submenu(){  												//Menu para las funciones de luces
 		printf("1- Auto Fantastico \n ");
 		printf("2- La carrera\n ");
 		printf("3- El choque\n ");
+		printf("4- La apilada\n ");
 		printf("5- SALIR\n ");
 		
 		seleccion=getchar();
@@ -62,6 +63,10 @@ submenu(){  												//Menu para las funciones de luces
 			
 			case '3':
 			ElChoque();
+			break;
+			
+			case '4':
+			apilada();
 			break;
 			
 			case '5':
