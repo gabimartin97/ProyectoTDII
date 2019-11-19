@@ -9,7 +9,7 @@
 
 
 void loopcarrera();
-
+void menucarrera();
 
 //int leds[8]={LED1,LED2,LED3,LED4,LED5,LED6,LED7,LED8};
 
@@ -25,7 +25,7 @@ void Carrera(){
         pinMode(LED7,OUTPUT);
         pinMode(LED8,OUTPUT);
         pinMode(sw1,INPUT);
-
+	menucarrera();
         loopcarrera();
         apagar();
         system("clear");
@@ -74,7 +74,14 @@ if(tecla=='q')break;
 }while(tecla != 'q');
 close_keyboard();
 }
-
+void menucarrera(){
+        system("clear");
+	printf("\n-------------------------------------------\n");
+	printf("EJECUTANDO LA CARRERA");
+	printf("\n-------------------------------------------\n");
+	printf("Pulse la tecla q para detener la secuencia \n");
+	printf("Puede variar la velocidad con las flechas arriba y abajo \n");
+}
 
 
 
