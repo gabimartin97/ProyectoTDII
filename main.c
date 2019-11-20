@@ -9,6 +9,7 @@
 int main(int argc, char **argv)
 {
 	char a;
+	system("clear");
 	a=acceso();
 	if (wiringPiSetup () == -1) exit (1); //Inicializoa Wiring PI y Chequea errores
 	pcf8591Setup(BASE, Address);   		  //Configuracion del ADC

@@ -6,7 +6,7 @@
 #include "compartidas.h"
 #include "kbhit.h"
 
-int delayCarrera=150;
+int delayCarrera=10;
 void loopcarrera();
 void menucarrera();
 

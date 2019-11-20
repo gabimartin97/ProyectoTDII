@@ -34,11 +34,11 @@ char CheckandDelay(int *delay){
 				case 'q': break; //Cuando se presiona una telca y es la tecla q, sale del bucle
 				
 				case 'A':
-				if(*delay>10){*delay=*delay - 5;}  //Si se presiona la flecha de arriba aumenta la velocidad
+				if((*delay+potenciometro)>10){*delay=*delay - 5;}  //Si se presiona la flecha de arriba aumenta la velocidad
 				break;
 				
 				case 'B':
-				if(*delay< 1000){*delay= *delay +5;} //si se presiona la flecha de abajo la velocidad disminuye
+				if((*delay+potenciometro)< 1000){*delay= *delay +5;} //si se presiona la flecha de abajo la velocidad disminuye
 				break;
 				
 				default:

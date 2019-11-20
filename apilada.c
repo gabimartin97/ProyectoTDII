@@ -7,7 +7,7 @@
 
 
 
-int delayApilada=150; 		//Las flechas arriba y abajo incrementarán la velocidad del bucle
+int delayApilada=10; 		//Las flechas arriba y abajo incrementarán la velocidad del bucle
 void loopApilada();
 void menuApilada();
 
