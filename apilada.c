@@ -42,24 +42,32 @@ init_keyboard(); //Para kbhit() (keyboardhit)
 
 do{
 
-		for (i=0;i<n;i++){
+		for (i=0;i<=n;i++){
 			digitalWrite(leds[i],1);
 			if(i!=0)digitalWrite(leds[i-1],0);
-			if(i!=0)tecla=CheckandDelay(&delayApilada);
+			//if(i!=0)
+			tecla=CheckandDelay(&delayApilada);
 			if(tecla=='q') break;
 		}
 		
+	    if(tecla!='q'){
 		digitalWrite(leds[n-1],0);
 		tecla=CheckandDelay(&delayApilada);
 		if(tecla=='q') break;
 		digitalWrite(leds[n-1],1);
 		n=n-1;
-		if(n == 1){ 
+		if(n == 0){
+			 digitalWrite(leds[n],0);
+			tecla=CheckandDelay(&delayApilada);
+			if(tecla=='q') break;
+			digitalWrite(leds[n],1);
+			tecla=CheckandDelay(&delayApilada);
 			apagar();
 			n=8;
 		}
-
-	}while(tecla !='q');		 //Cuando se pulsa q termina el bucle
+	} 
+	else;
+	}while(tecla!='q');		 //Cuando se pulsa q termina el bucle
 	close_keyboard();		//Para kbhit()
 }
 
