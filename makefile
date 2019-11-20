@@ -1,12 +1,13 @@
 CC=gcc
 CFLAGS= -I.
 
-proyecto: main.o menu.o acceso.o AutoFantastico.o kbhit.o CheckandDelay.o carrera.o EasyPIO.o compartidas.o ElChoque.o apilada.o ADC.o
-	$(CC) $(CFLAGS) -o proyecto main.o menu.o acceso.o AutoFantastico.o kbhit.o CheckandDelay.o carrera.o EasyPIO.o compartidas.o ElChoque.o apilada.o ADC.o -lwiringPi
+secuencias= AutoFantastico.o carrera.o ElChoque.o apilada.o
+
+proyecto: $(secuencias) main.o menu.o acceso.o kbhit.o CheckandDelay.o EasyPIO.o compartidas.o ADC.o
+	$(CC) $(CFLAGS) -o proyecto $(secuencias) main.o menu.o acceso.o kbhit.o CheckandDelay.o EasyPIO.o compartidas.o ADC.o -lwiringPi
 
 main.o: main.c
 	$(CC) $(CFLAGS) -c main.c -o main.o
-
 
 menu.o: menu.c 
 	$(CC) $(CFLAGS) -c -o menu.o menu.c
