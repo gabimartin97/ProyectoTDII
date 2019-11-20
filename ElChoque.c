@@ -61,11 +61,13 @@ do{
 }
 void menuchoque(){
         system("clear");
+		printf("\n-------------------------------------------\n");
+	printf("          EJECUTANDO EL CHOQUE\n");
+	printf("            Delay base: %dms ",potenciometro);
 	printf("\n-------------------------------------------\n");
-	printf("             EJECUTANDO EL CHOQUE");
-	printf("\n-------------------------------------------\n");
-	printf("Pulse la tecla Q para detener la secuencia \n");
-	printf("Puede variar la velocidad con las flechas arriba y abajo \n");
+	printf("-Pulse la tecla Q para detener la secuencia \n");
+	printf("-Puede variar la velocidad con las flechas arriba y abajo \n");
+
 }
 
 

@@ -17,9 +17,17 @@
 #define LED8 26
 #define sw1  17
 #define sw2  27
-#define SPEED 100 		//Setear la velocidad base del barrido. !La tiene que dar el conversor AD!
+
+  /* -------------------------SETUP DEL ADC------------------*/
+  #define Address 0x48  //Dirección del puerto I2C en el sensor, 0x48 default
+  #define BASE 64 //The Base can be any number you like above 64
+  #define A0 BASE+0 // Potenciometro. El pin 0 adopta el valor de la base
+  #define A1 BASE+1 //Fotocelda
+  #define A2 BASE+2 //Termistor
+  #define A3 BASE+3 //Conectado a GND
 
 extern int leds[8];
+extern int potenciometro;
 void apagar();
 
 

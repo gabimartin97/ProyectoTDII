@@ -18,12 +18,12 @@
 #include <stdio.h>
 #include <unistd.h>
 #include "compartidas.h"
-
+int potenciometro;
 
 char CheckandDelay(int *delay){
 	int i;
 	char tecla;
-	for(i=0;i<*delay;i++){
+	for(i=0;i<(*delay+potenciometro);i++){
 		usleep(1000); 					// 1ms de delay y luego chequea si se presionó una telca
 		/*-----------------------------------------------------------------------------------------*/
 			if(kbhit()){ 

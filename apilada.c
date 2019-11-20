@@ -75,8 +75,9 @@ do{
 void menuApilada(){
 	system("clear");
 	printf("\n-------------------------------------------\n");
-	printf("          EJECUTANDO LA APILADA");
+	printf("          EJECUTANDO LA APILADA\n");
+	printf("            Delay base: %dms ",potenciometro);
 	printf("\n-------------------------------------------\n");
-	printf("Pulse la tecla Q para detener la secuencia \n");
-	printf("Puede variar la velocidad con las flechas arriba y abajo \n");
+	printf("-Pulse la tecla Q para detener la secuencia \n");
+	printf("-Puede variar la velocidad con las flechas arriba y abajo \n");
 }

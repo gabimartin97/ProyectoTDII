@@ -36,22 +36,22 @@ void loopcarrera() {
 int i,k;
 int c;
 //int a;
-unsigned char tabla[]={   0b00000001,
-		0b00000001,
+int tabla[]={   0b00000001,
+				0b00000001,
                 0b00000010,
-		0b00000010,
+				0b00000010,
                 0b00000100,
-		0b00000100,
+				0b00000100,
                 0b00001000,
-		0b00001000,
+				0b00001000,
                 0b00010001,
-		0b00010010,
+				0b00010010,
                 0b00100100,
-		0b00101000,
+				0b00101000,
                 0b01010000,
-		0b01100000,
+				0b01100000,
                 0b11000000,
-		0b10000000};
+				0b10000000};
 char tecla;
 init_keyboard(); //Para kbhit() (keyboardhit)
 
@@ -75,11 +75,13 @@ close_keyboard(); //Para kbhit()
 
 void menucarrera(){
         system("clear");
+		printf("\n-------------------------------------------\n");
+	printf("          EJECUTANDO LA CARRERA\n");
+	printf("            Delay base: %dms ",potenciometro);
 	printf("\n-------------------------------------------\n");
-	printf("             EJECUTANDO LA CARRERA");
-	printf("\n-------------------------------------------\n");
-	printf("Pulse la tecla Q para detener la secuencia \n");
-	printf("Puede variar la velocidad con las flechas arriba y abajo \n");
+	printf("-Pulse la tecla Q para detener la secuencia \n");
+	printf("-Puede variar la velocidad con las flechas arriba y abajo \n");
+
 }
 
 

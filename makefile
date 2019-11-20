@@ -1,8 +1,8 @@
 CC=gcc
 CFLAGS= -I.
 
-proyecto: main.o menu.o acceso.o AutoFantastico.o kbhit.o CheckandDelay.o carrera.o EasyPIO.o compartidas.o ElChoque.o apilada.o
-	$(CC) $(CFLAGS) -o proyecto main.o menu.o acceso.o AutoFantastico.o kbhit.o CheckandDelay.o carrera.o EasyPIO.o compartidas.o ElChoque.o apilada.o
+proyecto: main.o menu.o acceso.o AutoFantastico.o kbhit.o CheckandDelay.o carrera.o EasyPIO.o compartidas.o ElChoque.o apilada.o ADC.o
+	$(CC) $(CFLAGS) -o proyecto main.o menu.o acceso.o AutoFantastico.o kbhit.o CheckandDelay.o carrera.o EasyPIO.o compartidas.o ElChoque.o apilada.o ADC.o -lwiringPi
 
 main.o: main.c
 	$(CC) $(CFLAGS) -c main.c -o main.o
@@ -37,6 +37,9 @@ ElChoque.o: ElChoque.c
 	
 apilada.o: apilada.c
 	$(CC) $(CFLAGS) -c -o apilada.o apilada.c
+
+ADC.o: ADC.c
+	$(CC) $(CFLAGS) -c -o ADC.o ADC.c 
 
 .PHONY: clean
 clean:
