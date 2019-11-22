@@ -4,15 +4,18 @@
 /*#include "AutoFantastico.c" Si usamos makefile no hay que incluirlas porque nos da errror de doble declaracion)*/
 /* El mismo makefile crea los objetos por separado y los linkea */
 /*-----------------------------------------------------------------------------------------------------------------*/
- #include "wiringPi.h" //WiringPi modificada
- #include <stdlib.h>
- #include <pcf8591.h> //Wiring pi soporta este sensor
- #include "EasyPIO.h"
+#include "wiringPi.h" //WiringPi modificada
+#include <stdlib.h>
+#include <pcf8591.h> //Wiring pi soporta este sensor
+#include "EasyPIO.h"
 #include <stdio.h>
 #include "compartidas.h"
 char seleccion; 											//Es variable de tipo char
-int potenciometro;
-int submenu();
+int potenciometro;											//Viene del ADC
+char submenu();												//Imprime texto y retorna seleccion
+int secuencias(char seleccion);								//Segun la seleccion ejectua una secuencia de luces
+
+
 int menu()
 {	
 	system("clear"); 										//Limpia el texto en la terminal
@@ -24,15 +27,29 @@ int menu()
 	do{
 		seleccion=getchar();
 		switch(seleccion){
-			case '1':
-			submenu();
+			
+			case '1':		//LOCAL
+				do{
+					system("clear"); 										//Limpia el terminal
+					printf("------------LOCAL--------------");
+					seleccion=submenu();				//Submenu indica que secuencia de luces queremos
+					secuencias(seleccion);				//
+				}while(seleccion!='5');					//5= exit
 			break;
 			
-			case '2':
-			submenu();
+			case '2':		//REMOTO
+				do{
+					system("clear"); 										//Limpia el terminal
+					printf("------------REMOTO--------------");
+					printf("Se enviara un byte por puerto serie segun la opcion elegida");
+					seleccion=submenu();				//Submenu indica que secuencia de luces queremos
+					escritura(seleccion); //envio el dato ------->
+					modoRemoto(seleccion);
+										
+				}while(seleccion!='5');	
 			break;
 			
-			case '5':
+			case '5':		//SALIR
 			break;
 			
 			default:
@@ -46,9 +63,9 @@ int menu()
 }
 
 
-submenu(){  												//Menu para las funciones de luces
-	do{
-		system("clear"); 										//Limpia el terminal
+char submenu(){  												//Menu para las funciones de luces
+	//do{
+		
 		printf("\n Seleccione la secuencia de luces a ejecutar \n ");
 		printf("1- Auto Fantastico \n ");
 		printf("2- La carrera\n ");
@@ -59,6 +76,10 @@ submenu(){  												//Menu para las funciones de luces
 		printf("Delay base (potenciometro): %dms \n",potenciometro);
 		
 		seleccion=getchar();
+		return seleccion;
+	}
+	
+	int secuencias(char seleccion){
 		switch(seleccion){
 			case '1':
 			potenciometro=ADC();
@@ -84,10 +105,14 @@ submenu(){  												//Menu para las funciones de luces
 			break;
 			
 			default:
-			printf("Opcion no valida \n");
+			printf("\n ----------------\n");
+			printf("Opcion no valida ");
+			printf("\n ----------------\n");
+			usleep(600000);
 			break;
 		}
-	}while(seleccion !='5');
-	return 0;
+		return 0;
+	}//while(seleccion !='5');
 	
-}
+	
+

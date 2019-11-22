@@ -3,8 +3,8 @@ CFLAGS= -I.
 
 secuencias= AutoFantastico.o carrera.o ElChoque.o apilada.o
 
-proyecto: $(secuencias) main.o menu.o acceso.o kbhit.o CheckandDelay.o EasyPIO.o compartidas.o ADC.o
-	$(CC) $(CFLAGS) -o proyecto $(secuencias) main.o menu.o acceso.o kbhit.o CheckandDelay.o EasyPIO.o compartidas.o ADC.o -lwiringPi
+proyecto: $(secuencias) main.o menu.o acceso.o kbhit.o CheckandDelay.o EasyPIO.o compartidas.o ADC.o escritura.o termset.o modoRemoto.o
+	$(CC) $(CFLAGS) -o proyecto $(secuencias) main.o menu.o acceso.o kbhit.o CheckandDelay.o EasyPIO.o compartidas.o ADC.o escritura.o termset.o modoRemoto.o -lwiringPi
 
 main.o: main.c
 	$(CC) $(CFLAGS) -c main.c -o main.o
@@ -40,8 +40,16 @@ apilada.o: apilada.c
 	$(CC) $(CFLAGS) -c -o apilada.o apilada.c
 
 ADC.o: ADC.c
-	$(CC) $(CFLAGS) -c -o ADC.o ADC.c 
+	$(CC) $(CFLAGS) -c -o ADC.o ADC.c
 
+escritura.o: escritura.c
+	 $(CC) $(CFLAGS) -c -o escritura.o escritura.c
+
+termset.o: termset.c
+	$(CC) $(CFLAGS) -c -o termset.o termset.c
+
+modoRemoto.o: modoRemoto.c
+	$(CC) $(CFLAGS) -c -o modoRemoto.o modoRemoto.c
 .PHONY: clean
 clean:
 	rm *.o 
