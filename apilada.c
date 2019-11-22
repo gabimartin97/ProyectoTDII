@@ -45,7 +45,6 @@ do{
 		for (i=0;i<=n;i++){
 			digitalWrite(leds[i],1);
 			if(i!=0)digitalWrite(leds[i-1],0);
-			//if(i!=0)
 			tecla=CheckandDelay(&delayApilada);
 			if(tecla=='q') break;
 		}

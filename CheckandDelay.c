@@ -18,11 +18,11 @@
 #include <stdio.h>
 #include <unistd.h>
 #include "compartidas.h"
-int potenciometro;
 
 char CheckandDelay(int *delay){
 	int i;
 	char tecla;
+	
 	for(i=0;i<(*delay+potenciometro);i++){
 		usleep(1000); 					// 1ms de delay y luego chequea si se presionó una telca
 		/*-----------------------------------------------------------------------------------------*/
@@ -34,7 +34,7 @@ char CheckandDelay(int *delay){
 				case 'q': break; //Cuando se presiona una telca y es la tecla q, sale del bucle
 				
 				case 'A':
-				if((*delay+potenciometro)>10 && *delay>5){*delay=*delay - 5;}  //Si se presiona la flecha de arriba aumenta la velocidad
+				if((*delay+potenciometro)>10 ){*delay=*delay - 5;}  //Si se presiona la flecha de arriba aumenta la velocidad
 				break;
 				
 				case 'B':
@@ -47,7 +47,7 @@ char CheckandDelay(int *delay){
 			 
 			}
 			/*-----------------------------------------------------------------------------------------*/
-		
+		//printf("delay actual:%d",(*delay+potenciometro)); //lo use para corroborar
 		if(tecla=='q') break;
 		
 	}

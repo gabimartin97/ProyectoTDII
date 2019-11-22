@@ -18,9 +18,10 @@
 
 
 
-int delayFantastico=10; 		//Las flechas arriba y abajo incrementarán la velocidad del bucle
+int delayFantastico=0; 		//Las flechas arriba y abajo incrementarán la velocidad del bucle
 void loopFantastico();
 void menufantastico();
+
 
 /*....................................main............................*/
 
@@ -50,6 +51,7 @@ void loopFantastico() {
 int i;
 char tecla;
 init_keyboard(); //Para kbhit() (keyboardhit)
+
 
 do{
 

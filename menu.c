@@ -19,7 +19,7 @@ int secuencias(char seleccion);								//Segun la seleccion ejectua una secuenci
 int menu()
 {	
 	system("clear"); 										//Limpia el texto en la terminal
-	printf("\nBIENVENIDO AL MEJOR PROYECTO FINAL DE LAHISTORIA \n");	
+	printf("\nBIENVENIDO AL MEJOR PROYECTO FINAL DE LA HISTORIA \n");	
 	printf("Seleccione el método de trabajo \n");
 	printf("1- LOCAL\n");
 	printf("2- REMOTO\n");
@@ -83,21 +83,29 @@ char submenu(){  												//Menu para las funciones de luces
 		switch(seleccion){
 			case '1':
 			potenciometro=ADC();
+			if(potenciometro==0)      				//para que no se produzca error cuando el potenciometro esta en 0
+			potenciometro++;
 			AutoFantastico(); 						//Cada funcion debe imprimir en pantalla su propio menu de ejecuccion
 			break;
 			
 			case '2':
 			potenciometro=ADC();
+			if(potenciometro==0)
+			potenciometro++;
 			Carrera();
 			break;
 			
 			case '3':
 			potenciometro=ADC();
+			if(potenciometro==0)
+			potenciometro++;
 			ElChoque();
 			break;
 			
 			case '4':
 			potenciometro=ADC();
+			if(potenciometro==0)
+			potenciometro++;
 			apilada();
 			break;
 			

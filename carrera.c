@@ -6,7 +6,7 @@
 #include "compartidas.h"
 #include "kbhit.h"
 
-int delayCarrera=10;
+int delayCarrera=0;
 void loopcarrera();
 void menucarrera();
 
@@ -54,6 +54,7 @@ int tabla[]={   0b00000001,
 				0b10000000};
 char tecla;
 init_keyboard(); //Para kbhit() (keyboardhit)
+
 
 do{
 
