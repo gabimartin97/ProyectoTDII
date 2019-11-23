@@ -11,10 +11,7 @@ a. El valor inicial correspondiente a la velocidad de las secuencias deberá ing
 a. Generar una opción en el programa que permita establecer dos modos de trabajo: local y remoto. En modo local las secuencias de luces se ejecutarán en los leds que se encuentran en el hardware adicionado a la placa Raspberry donde se ejecuta el programa. En modo remoto las secuencias se ejecutarán sobre el hardware adicional colocado en otra Raspberry y conectada a la que ejecuta el programa mediante un cable serie RS-232. Se podrá usar el mismo programa para implementar esta opción en las dos Raspberry o realizar uno principal y otro secundario.\
 a. Como opción genere una sección destinada a establecer las velocidades iniciales de las secuencias realizando el ajuste de los potenciómetros.\
 
-\ **ESTADO DEL PROYECTO (20/11/19): EL ACCESO CON CONTRASEÑA FUNCIONA CORRECTAMENTE, EL MENÚ YA CONTIENE TODAS LAS OPCIONES Y YA SE PUEDE ACCEDER A 4 SECUENCIAS DE LUCES, EJECUTARLAS, MODIFICAR SU VELOCIDAD Y DETENERLAS AL PRESIONAR UNA TECLA. EL ARCHIVO MAKEFILE FUE CREADO, SI BIEN NO ESTÁ PROLIJO FUNCIONA CORRECTAMENTE.\
-\FALTAN 4 SECUENCIAS DE LUCES MAS, QUE SIGUIENDO LOS MODELOS YA HECHOS DEBERIAN HACERSE FACIL.
-FALTA IMPLEMENTAR VELOCIDAD INICIAL CON ADC
-. FALTA CONFIGURAR EL MODO DE TRABAJO REMOTO Y HACER EL PROGRAMA CLON SECUNDARIO PARA LA SEGUNDA RASPBERRY.**
+\ **ESTADO DEL PROYECTO (20/11/19):TODO JOYA FALTA PULIR Y 1 SECUENCIA
 
 
 o	8 FUNCIONES DE LAS SECUENCIAS DE LUCES\
