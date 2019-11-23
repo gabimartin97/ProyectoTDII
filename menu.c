@@ -23,7 +23,7 @@ int menu()
 	printf("Seleccione el método de trabajo \n");
 	printf("1- LOCAL\n");
 	printf("2- REMOTO\n");
-	printf("5- SALIR\n");
+	printf("9- SALIR\n");
 	do{
 		seleccion=getchar();
 		switch(seleccion){
@@ -34,7 +34,7 @@ int menu()
 					printf("------------LOCAL--------------");
 					seleccion=submenu();				//Submenu indica que secuencia de luces queremos
 					secuencias(seleccion);				//
-				}while(seleccion!='5');					//5= exit
+				}while(seleccion!='9');					//9= exit
 			break;
 			
 			case '2':		//REMOTO
@@ -46,17 +46,17 @@ int menu()
 					escritura(seleccion); //envio el dato ------->
 					modoRemoto(seleccion);
 										
-				}while(seleccion!='5');	
+				}while(seleccion!='9');	
 			break;
 			
-			case '5':		//SALIR
+			case '9':		//SALIR
 			break;
 			
 			default:
 			printf("Opcion no valida \n");
 			break;
 		}
-	}while(seleccion !='5');
+	}while(seleccion !='9');
 		
 	
 	return 0;
@@ -71,7 +71,9 @@ char submenu(){  												//Menu para las funciones de luces
 		printf("2- La carrera\n ");
 		printf("3- El choque\n ");
 		printf("4- La apilada\n ");
-		printf("5- SALIR\n ");
+		printf("5- Secuencia extra 1\n ");
+		printf("6- Secuencia extra 2\n ");
+		printf("9- SALIR\n ");
 		potenciometro=ADC();								//Leo el valor del potenciometro del adc
 		printf("Delay base (potenciometro): %dms \n",potenciometro);
 		
@@ -110,6 +112,20 @@ char submenu(){  												//Menu para las funciones de luces
 			break;
 			
 			case '5':
+			potenciometro=ADC();
+			if(potenciometro==0)
+			potenciometro++;
+			secuencia1();
+			break;
+			
+			case '6':
+			potenciometro=ADC();
+			if(potenciometro==0)
+			potenciometro++;
+			secuencia2();
+			break;
+			
+			case '9':
 			break;
 			
 			default:

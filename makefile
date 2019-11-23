@@ -1,7 +1,7 @@
 CC=gcc
 CFLAGS= -I.
 
-secuencias= AutoFantastico.o carrera.o ElChoque.o apilada.o
+secuencias= AutoFantastico.o carrera.o ElChoque.o apilada.o secuencia1.o secuencia2.o
 
 proyecto: $(secuencias) main.o menu.o acceso.o kbhit.o CheckandDelay.o EasyPIO.o compartidas.o ADC.o escritura.o termset.o modoRemoto.o
 	$(CC) $(CFLAGS) -o proyecto $(secuencias) main.o menu.o acceso.o kbhit.o CheckandDelay.o EasyPIO.o compartidas.o ADC.o escritura.o termset.o modoRemoto.o -lwiringPi
@@ -38,6 +38,12 @@ ElChoque.o: ElChoque.c
 	
 apilada.o: apilada.c
 	$(CC) $(CFLAGS) -c -o apilada.o apilada.c
+	
+secuencia1.o: secuencia1.c
+	$(CC) $(CFLAGS) -c -o secuencia1.o secuencia1.c
+
+secuencia2.o: secuencia2.c
+	$(CC) $(CFLAGS) -c -o secuencia2.o secuencia2.c
 
 ADC.o: ADC.c
 	$(CC) $(CFLAGS) -c -o ADC.o ADC.c
