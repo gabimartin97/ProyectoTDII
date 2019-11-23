@@ -13,6 +13,7 @@ char CheckandDelay(int *delay){
 	int i,fd;
 	char tecla;
 	fd=serialOpen("/dev/ttyAMA0",9600);  //Apertura del puerto serie
+	if ((*delay + potenciometro)<=5) *delay=5; // Impide que el delay se haga negativo  al estar en velocidad maxima y hacer 0 el pote
 	for(i=0;i<(*delay+potenciometro);i++){
 		usleep(1000); 					// 1ms de delay y luego chequea si hay dato serie
 		/*-----------------------------------------------------------------------------------------*/
@@ -24,7 +25,7 @@ char CheckandDelay(int *delay){
 				case 'q': break; 						//Cuando el dato es q, sale del bucle
 				
 				case 'A':
-				if((*delay+potenciometro)>10 && *delay>5){*delay=*delay - 5;}  //Si se presiona la flecha de arriba aumenta la velocidad
+				if((*delay+potenciometro)>10 ){*delay=*delay - 5;}  //Si se presiona la flecha de arriba aumenta la velocidad
 				break;
 				
 				case 'B':

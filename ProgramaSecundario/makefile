@@ -3,7 +3,7 @@
 CC=gcc
 CFLAGS= -I.
 
-secuencias= AutoFantastico.o carrera.o ElChoque.o apilada.o
+secuencias= AutoFantastico.o carrera.o ElChoque.o apilada.o secuencia1.o secuencia2.o secuencia3.o
 
 programa2: $(secuencias) programa2.o  SerialCheckandDelay.o EasyPIO.o compartidas.o ADC.o 
 	$(CC) $(CFLAGS) -o programa2 $(secuencias) programa2.o  SerialCheckandDelay.o EasyPIO.o compartidas.o ADC.o -lwiringPi
@@ -34,6 +34,14 @@ apilada.o: apilada.c
 ADC.o: ADC.c
 	$(CC) $(CFLAGS) -c -o ADC.o ADC.c
 
+secuencia1.o: secuencia1.c
+	$(CC) $(CFLAGS) -c -o secuencia1.o secuencia1.c
+
+secuencia2.o: secuencia2.c
+	$(CC) $(CFLAGS) -c -o secuencia2.o secuencia2.c
+
+secuencia3.o: secuencia3.c
+	$(CC) $(CFLAGS) -c -o secuencia3.o secuencia3.c
 .PHONY: clean
 clean:
 	rm *.o 

@@ -18,7 +18,7 @@ int main(void)
 {
 	char seleccion;
 	int fd;
-	if (wiringPiSetup () == -1) exit (1); //Inicializoa Wiring PI y Chequea errores
+	if (wiringPiSetup () == -1) exit (1); //Inicializa Wiring PI y Chequea errores
 	pcf8591Setup(BASE, Address);   		  //Configuracion del ADC
 	
 	do{
@@ -26,42 +26,53 @@ int main(void)
 		fd=serialOpen("/dev/ttyAMA0",9600);    //Abro puerto serie
 		seleccion=serialGetchar(fd); 			//Leo el dato que viene por puerto serie. el codigo no sigue hasta que llega el dato o pasan unos segundos
 		serialClose(fd);
+		potenciometro=ADC();
+		if(potenciometro==0) potenciometro++;  		//para que no se produzca error cuando el potenciometro esta en 0
+			
 	switch(seleccion){
 					
 			case '1':
-			potenciometro=ADC();
-			AutoFantastico();		
+			AutoFantastico(); 						//Cada funcion debe imprimir en pantalla su propio menu de ejecuccion
 			break;
 			
 			case '2':
-			potenciometro=ADC();
 			Carrera();
-			 	
 			break;
 			
 			case '3':
-			potenciometro=ADC();
 			ElChoque();
-			 	
 			break;
 			
 			case '4':
-			potenciometro=ADC();
 			apilada();
-			
 			break;
 			
 			case '5':
-				
+			secuencia1();
+			break;
+			
+			case '6':
+			secuencia2();
+			break;
+			
+			case '7':
+			secuencia3();
+			break;
+			
+			case '8':
+			//secuencia4(); work in progress
+			break;
+			
+			case '9':
 			break;
 			
 			default:
 			system("clear");
-			printf("\n  Dato no valido \n "); 
+			printf("\n  Dato no válido \n "); 
 			break;
 		}
 	
-	}while(seleccion != '5');    //5 hace salir al programa
+	}while(seleccion != '9');    //9 hace salir al programa
 	
 		return 0;
 }
@@ -75,7 +86,11 @@ void submenu(){  												//Menu para las funciones de luces
 		printf("2- La carrera\n ");
 		printf("3- El choque\n ");
 		printf("4- La apilada\n ");
-		printf("5- SALIR\n ");
+		printf("5- Secuencia extra 1\n ");
+		printf("6- Secuencia extra 2\n ");
+		printf("7- Secuencia extra 3\n ");
+		printf("8- Secuencia extra 4\n ");
+		printf("9- SALIR\n ");
 		potenciometro=ADC();								//Leo el valor del potenciometro del adc
 		printf("Delay base (potenciometro): %dms \n",potenciometro);
 				

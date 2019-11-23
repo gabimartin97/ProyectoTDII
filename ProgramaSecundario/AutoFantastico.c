@@ -50,7 +50,7 @@ void AutoFantastico(){
 void loopFantastico() {
 int i;
 char tecla;
-//fd=serialOpen("/dev/ttyAMA0",9600);  //Apertura del puerto serie
+
 
 do{
 
@@ -71,7 +71,7 @@ do{
 
 
 	}while(tecla !='q');		 //Cuando se pulsa q termina el bucle
-	//serialClose(fd);
+	
 }
 
 
