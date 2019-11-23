@@ -15,39 +15,37 @@ char tecla;
 	switch (seleccion){
 			case '1':
 			menufantastico();  
-				do{
-				tecla=getchar();
-				escritura(tecla);
-				}while(tecla!='q');
-				break;
+			break;
 			
 			case '2':
-			
 			menucarrera();
-				do{
-				tecla=getchar();
-				escritura(tecla);
-				}while(tecla!='q');
 			break;
 			
 			case '3':
 			menuchoque();
-				do{
-				tecla=getchar();
-				escritura(tecla);
-				}while(tecla!='q');
 			break;
 			
 			case '4':
-			
 			menuApilada();
-				do{
-				tecla=getchar();
-				escritura(tecla);
-				}while(tecla!='q');
 			break;
 			
 			case '5':
+			secuencia1();
+			break;
+			
+			case '6':
+			secuencia2();
+			break;
+			
+			case '7':
+			secuencia3();
+			break;
+			
+			case '8':
+			//secuencia4(); Work in progress
+			break;
+			
+			case '9':
 			break;
 			
 			default:
@@ -56,6 +54,11 @@ char tecla;
 			printf("\n ----------------\n");
 			usleep(600000);
 			break;
+			
+			do{
+				tecla=getchar();
+				escritura(tecla);
+				}while(tecla!='q');
 		}
 		
 			

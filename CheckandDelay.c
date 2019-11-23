@@ -22,7 +22,9 @@
 char CheckandDelay(int *delay){
 	int i;
 	char tecla;
-	
+	if ((*delay + potenciometro)<=5) *delay=5; // Impide que el delay se haga negativo  al estar en velocidad maxima y hacer 0 el pote
+		 
+	 
 	for(i=0;i<(*delay+potenciometro);i++){
 		usleep(1000); 					// 1ms de delay y luego chequea si se presionó una telca
 		/*-----------------------------------------------------------------------------------------*/
@@ -35,10 +37,12 @@ char CheckandDelay(int *delay){
 				
 				case 'A':
 				if((*delay+potenciometro)>10 ){*delay=*delay - 5;}  //Si se presiona la flecha de arriba aumenta la velocidad
+								
 				break;
 				
 				case 'B':
 				if((*delay+potenciometro)< 1000){*delay= *delay +5;} //si se presiona la flecha de abajo la velocidad disminuye
+								
 				break;
 				
 				default:
@@ -47,7 +51,7 @@ char CheckandDelay(int *delay){
 			 
 			}
 			/*-----------------------------------------------------------------------------------------*/
-		//printf("delay actual:%d",(*delay+potenciometro)); //lo use para corroborar
+		
 		if(tecla=='q') break;
 		
 	}
