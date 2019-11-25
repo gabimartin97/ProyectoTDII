@@ -19,8 +19,10 @@ int secuencias(char seleccion);								//Segun la seleccion ejectua una secuenci
 int menu()
 {	do{
 	if(seleccion=='q'){
-	system("clear"); 										//Limpia el texto en la terminal
-	printf("\nBIENVENIDO AL PROYECTO FINAL DE TDII \n");	
+	system("clear"); 
+	printf("-------------------------------------------");										//Limpia el texto en la terminal
+	printf("\nBIENVENIDO AL PROYECTO FINAL DE TDII \n");
+	printf("-------------------------------------------\n");			
 	printf("Seleccione el método de trabajo \n");
 	printf("1- LOCAL\n");
 	printf("2- REMOTO\n");
@@ -32,7 +34,7 @@ int menu()
 			case '1':		//LOCAL
 				do{
 					system("clear"); 										//Limpia el terminal
-					printf("------------LOCAL--------------");
+					printf("-----------------LOCAL-------------------");
 					if((seleccion=submenu())=='q')break;				//Submenu indica que secuencia de luces queremos. Si es q hay que volver atrás
 					secuencias(seleccion);				// llamado a la funcion secuencias, le paso como parametro la seleccion
 				}while(seleccion!='9');					//9= exit
@@ -41,7 +43,7 @@ int menu()
 			case '2':		//REMOTO
 				do{
 					system("clear"); 										//Limpia el terminal
-					printf("------------REMOTO--------------");
+					printf("-----------------REMOTO-------------------");
 					printf("\n Se enviará un byte por puerto serie segun la opción elegida");
 					if((seleccion=submenu())=='q')break;				//Submenu indica que secuencia de luces queremos. Si es q hay que volver atrás
 					escritura(seleccion); //envio el dato ------->
