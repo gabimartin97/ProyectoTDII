@@ -41,13 +41,14 @@ int i,j;
 char tecla;
 init_keyboard(); //Para kbhit() (keyboardhit)
 
-//Aveces demora en salir o ignora la tecla q
+
 do{
 	for(j=0;j<4;j++){
 		for (i=3;i>(-1);i--){
 			if(i!=3)digitalWrite(leds[i+1],0);
 			digitalWrite(leds[i],1);
 			tecla=CheckandDelay(&delaySecuencia1);
+			if(tecla=='q') break;
 			if(i==0){digitalWrite(leds[i],0);
 			tecla=CheckandDelay(&delaySecuencia1);}
 			if(tecla=='q') break;
@@ -61,6 +62,7 @@ do{
 			digitalWrite(leds[i],1);
 			if(i!=4)digitalWrite(leds[i-1],0);
 			tecla=CheckandDelay(&delaySecuencia1);
+			if(tecla=='q') break;
 			if(i==7){digitalWrite(leds[i],0);
 			tecla=CheckandDelay(&delaySecuencia1);}
 			if(tecla=='q') break; 				//Cuando se presiona una telca y es la tecla q, sale del bucle

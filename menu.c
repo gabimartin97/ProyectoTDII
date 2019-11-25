@@ -12,6 +12,7 @@
 #include "compartidas.h"
 char seleccion = 'q'; 											//Es variable de tipo char. vale q para la primer iteracion
 int potenciometro;											//Viene del ADC
+char serialpotenciometro;
 char submenu();												//Imprime texto y retorna seleccion
 int secuencias(char seleccion);								//Segun la seleccion ejectua una secuencia de luces
 
@@ -39,14 +40,19 @@ int menu()
 					secuencias(seleccion);				// llamado a la funcion secuencias, le paso como parametro la seleccion
 				}while(seleccion!='9');					//9= exit
 			break;
-			
+			/*---------------------------------------------------------------------------------------------------------------*/
 			case '2':		//REMOTO
 				do{
 					system("clear"); 										//Limpia el terminal
 					printf("-----------------REMOTO-------------------");
 					printf("\n Se enviará un byte por puerto serie segun la opción elegida");
-					if((seleccion=submenu())=='q')break;				//Submenu indica que secuencia de luces queremos. Si es q hay que volver atrás
-					escritura(seleccion); //envio el dato ------->
+					if(((seleccion=submenu())=='q') || (seleccion=='9') )break;				//Submenu indica que secuencia de luces queremos. Si es q hay que volver atrás
+					
+					potenciometro=ADC();
+					serialpotenciometro=(potenciometro + '0'); 			//Convierto el valor int del pote en un valor char suamandole '0'
+					escritura('@');										//El arroba es para que el programa 2 sepa que le envio el valor del pote a continuacion
+					escritura(serialpotenciometro);						//envio el pote como char
+					escritura(seleccion); 								// leugo envio el dato ------->
 					modoRemoto(seleccion);
 										
 				}while(seleccion!='9');	

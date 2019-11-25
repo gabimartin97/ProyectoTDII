@@ -11,7 +11,8 @@
 
 void modoRemoto(char seleccion){  //la funcion seleccionada llega como parametro de la funcion
 char tecla;
-printf("-----------------REMOTO--------------------");
+int def=0; //default
+//printf("-----------------REMOTO--------------------");
 	switch (seleccion){
 			case '1':
 			menufantastico();  
@@ -49,6 +50,7 @@ printf("-----------------REMOTO--------------------");
 			break;
 			
 			default:
+			def=1;
 			printf("\n ----------------\n");
 			printf("Opcion no valida ");
 			printf("\n ----------------\n");
@@ -56,14 +58,17 @@ printf("-----------------REMOTO--------------------");
 			break;
 			}
 			
+			
+			if(def!=1){
 			do{
 				tecla=getchar();
 				escritura(tecla);
 				}while(tecla!='q');
-		
-		
-			
-	
+		}
+		else {
+			def=0;
+		}
+
 	
 	
 
