@@ -34,7 +34,7 @@ void loopSecuencia2() {
 int i,k;
 int c;
 //int a;
-int tabla[]={   0b11110000,
+unsigned char tabla[]={   0b11110000,
 				0b00000000,
                 0b11110000,
 				0b00000000,

@@ -123,7 +123,7 @@ char submenu(){  												//Menu para las funciones de luces
 			break;
 			
 			case '8':
-			//secuencia4(); work in progress
+			secuencia4();
 			break;
 			
 			case '9':

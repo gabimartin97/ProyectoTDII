@@ -42,7 +42,7 @@ char tecla;
 			break;
 			
 			case '8':
-			//secuencia4(); Work in progress
+			secuencia4();
 			break;
 			
 			case '9':
