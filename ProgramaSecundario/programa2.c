@@ -14,6 +14,7 @@
 
 void submenu();
 int potenciometro;
+char serialpotenciometro;
 int main(void)
 {
 	char seleccion;
@@ -25,8 +26,14 @@ int main(void)
 		submenu();
 		fd=serialOpen("/dev/ttyAMA0",9600);    //Abro puerto serie
 		seleccion=serialGetchar(fd); 			//Leo el dato que viene por puerto serie. el codigo no sigue hasta que llega el dato o pasan unos segundos
-		serialClose(fd);
-		potenciometro=ADC();
+		
+		if(seleccion=='@'){				//El @ me indica que el proximo dato es el valor del potenciometro
+			 serialpotenciometro=serialGetchar(fd);		//tomo el valor char
+			 potenciometro=(serialpotenciometro -'0');  //y lo transforomo en int
+			 seleccion=serialGetchar(fd);}				//leo el proximo dato
+			 serialClose(fd);
+		//potenciometro=ADC();							//Descomentar esta linea y borrar las anteriores si se desea leer el ADC de la placa 2
+		if(potenciometro<0) potenciometro=1;		//por las dudas
 		if(potenciometro==0) potenciometro++;  		//para que no se produzca error cuando el potenciometro esta en 0
 			
 	switch(seleccion){
@@ -91,7 +98,7 @@ void submenu(){  												//Menu para las funciones de luces
 		printf("7- Secuencia extra 3\n ");
 		printf("8- Secuencia extra 4\n ");
 		printf("9- SALIR\n ");
-		potenciometro=ADC();								//Leo el valor del potenciometro del adc
+		//potenciometro=ADC();								//Leo el valor del potenciometro del adc
 		printf("Delay base (potenciometro): %dms \n",potenciometro);
 				
 	}
