@@ -18,9 +18,9 @@
 
 
 
-int delayFantastico=0; 		//Las flechas arriba y abajo incrementarán la velocidad del bucle
-void loopFantastico();
-void menufantastico();
+int delayFantastico=0; 		// CADA FUNCION TIENE SU PROPIO DELAY Las flechas arriba y abajo incrementarán la velocidad del bucle
+void loopFantastico();		//CADA FUNCION TIENE SU BUCLE DE LUCES
+void menufantastico();		//CADA FUNCION TIENE SU PROPIO MENU
 
 
 /*....................................main............................*/

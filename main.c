@@ -6,10 +6,10 @@
 //#include "acceso.c"  (Si usamos makefile no hace hay que incluirlas porque nos da errror de doble declaracion)
 //#include "menu.c"
 
-int main(int argc, char **argv)
+int main(void)
 {
 	char a;
-	system("clear");
+	system("clear");						//Limpia el terminal 
 	a=acceso();
 	if (wiringPiSetup () == -1) exit (1); //Inicializoa Wiring PI y Chequea errores
 	pcf8591Setup(BASE, Address);   		  //Configuracion del ADC

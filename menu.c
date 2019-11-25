@@ -4,10 +4,10 @@
 /*#include "AutoFantastico.c" Si usamos makefile no hay que incluirlas porque nos da errror de doble declaracion)*/
 /* El mismo makefile crea los objetos por separado y los linkea */
 /*-----------------------------------------------------------------------------------------------------------------*/
-#include "wiringPi.h" //WiringPi modificada
+#include "wiringPi.h" //WiringPi modificada para que no tenga conflicto con EasyPIO
 #include <stdlib.h>
 #include <pcf8591.h> //Wiring pi soporta este sensor
-#include "EasyPIO.h"
+#include "EasyPIO.h" //Programada por nosotros
 #include <stdio.h>
 #include "compartidas.h"
 char seleccion = 'q'; 											//Es variable de tipo char. vale q para la primer iteracion
@@ -34,7 +34,7 @@ int menu()
 					system("clear"); 										//Limpia el terminal
 					printf("------------LOCAL--------------");
 					if((seleccion=submenu())=='q')break;				//Submenu indica que secuencia de luces queremos. Si es q hay que volver atrás
-					secuencias(seleccion);				//
+					secuencias(seleccion);				// llamado a la funcion secuencias, le paso como parametro la seleccion
 				}while(seleccion!='9');					//9= exit
 			break;
 			

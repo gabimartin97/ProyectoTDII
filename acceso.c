@@ -12,11 +12,11 @@
 #define maxlenght 20 //Máxima lognitud del vector contraseña
 
 struct termios orig_termios; //Declaracion de la variable orig_termios de la estructura de tipo termios
-void disableRawMode() {
+void disableRawMode() {		//desactivar modo no-canonico
   tcsetattr(STDIN_FILENO, TCSAFLUSH, &orig_termios); // retornamos los parametros originales 
 }
 
-void enableRawMode() {
+void enableRawMode() { 			//activar modo no-canonico
   tcgetattr(STDIN_FILENO, &orig_termios); //tcgetattr() to read the current attributes into a struct. Copiamos los atributos a la variable orig_termios
   atexit(disableRawMode); //Llama a la funcion disable automáticamente al salir del programa
 
