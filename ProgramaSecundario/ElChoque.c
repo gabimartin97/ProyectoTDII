@@ -11,7 +11,7 @@
 
 void loopChoque();
 void menuchoque();
-int delayChoque=0;
+int delayChoque=10;
 
 
 /*....................................main............................*/

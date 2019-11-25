@@ -74,7 +74,7 @@ for(k=0;k<16;k++){
 void menuSecuencia2(){
         system("clear");
 		printf("\n-------------------------------------------\n");
-	printf("          EJECUTANDO SECUENCIA EXTRA 2 DE MANERA REMOTA\n");
+	printf("          EJECUTANDO SECUENCIA EXTRA 2\n");
 	printf("            Delay base: %dms ",potenciometro);
 	printf("\n-------------------------------------------\n");
 	printf("-Pulse la tecla Q para detener la secuencia \n");

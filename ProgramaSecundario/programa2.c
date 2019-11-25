@@ -60,7 +60,7 @@ int main(void)
 			break;
 			
 			case '8':
-			secuencia4(); 
+			secuencia4();
 			break;
 			
 			case '9':

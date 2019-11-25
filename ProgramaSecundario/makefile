@@ -42,10 +42,9 @@ secuencia2.o: secuencia2.c
 
 secuencia3.o: secuencia3.c
 	$(CC) $(CFLAGS) -c -o secuencia3.o secuencia3.c
-	
+
 secuencia4.o: secuencia4.c
 	$(CC) $(CFLAGS) -c -o secuencia4.o secuencia4.c
-	
 .PHONY: clean
 clean:
 	rm *.o 

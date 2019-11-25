@@ -11,9 +11,17 @@ void menuSecuencia4();
 
 /*....................................Carrera............................*/
 void secuencia4(){
-        int i;
         pioInit(); //No olvidarse de pioInit
-        for(i=0;i<8;i++) pinMode(leds[i],OUTPUT);
+        pinMode(LED1,OUTPUT);
+        pinMode(LED2,OUTPUT);
+        pinMode(LED3,OUTPUT);
+        pinMode(LED4,OUTPUT);
+        pinMode(LED5,OUTPUT);
+        pinMode(LED6,OUTPUT);
+        pinMode(LED7,OUTPUT);
+        pinMode(LED8,OUTPUT);
+        pinMode(sw1,INPUT);
+        
         menuSecuencia4();
         loopSecuencia4();
         apagar();
@@ -23,7 +31,8 @@ void secuencia4(){
 
 
 void loopSecuencia4() {
-int i,k,c;
+int i,k;
+int c;
 unsigned char tabla[]={   0b00000001,
                                 0b10000000,
                 0b00000010,
@@ -82,7 +91,7 @@ for(k=0;k<32;k++){
 void menuSecuencia4(){
         system("clear");
 		printf("\n-------------------------------------------\n");
-	printf("          EJECUTANDO SECUENCIA EXTRA 4 DE MANERA REMOTA\n");
+	printf("          EJECUTANDO SECUENCIA EXTRA 4\n");
 	printf("            Delay base: %dms ",potenciometro);
 	printf("\n-------------------------------------------\n");
 	printf("-Pulse la tecla Q para detener la secuencia \n");

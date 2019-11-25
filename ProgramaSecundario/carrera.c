@@ -7,7 +7,7 @@
 #include <wiringPi.h>
 #include <wiringSerial.h>
 
-int delayCarrera=0;
+int delayCarrera=10;
 void loopcarrera();
 void menucarrera();
 
