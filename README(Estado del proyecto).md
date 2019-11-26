@@ -9,21 +9,11 @@ a. Cada vez que el usuario seleccione una secuencia el programa deberá cambiar 
 a. Permita la posibilidad de controlar la velocidad de cada secuencia. Presionando la flecha hacia arriba se incrementará la velocidad y presionando la flecha hacia abajo se reducirá. Introduzca el sensado de las teclas oprimidas en el lugar apropiado de su programa a fin de percibir la reacción del sistema en forma inmediata, independiente de la velocidad actual. La velocidad ajustada en cada secuencia deberá conservarse entre llamadas a diferentes secuencias.\
 a. El valor inicial correspondiente a la velocidad de las secuencias deberá ingresarse mediante la lectura del estado de los potenciómetros que están conectados a las entradas analógicas del conversor A/D.\
 a. Generar una opción en el programa que permita establecer dos modos de trabajo: local y remoto. En modo local las secuencias de luces se ejecutarán en los leds que se encuentran en el hardware adicionado a la placa Raspberry donde se ejecuta el programa. En modo remoto las secuencias se ejecutarán sobre el hardware adicional colocado en otra Raspberry y conectada a la que ejecuta el programa mediante un cable serie RS-232. Se podrá usar el mismo programa para implementar esta opción en las dos Raspberry o realizar uno principal y otro secundario.\
-a. Como opción genere una sección destinada a establecer las velocidades iniciales de las secuencias realizando el ajuste de los potenciómetros.\
-
-\ **ESTADO DEL PROYECTO (20/11/19): EL ACCESO CON CONTRASEÑA FUNCIONA CORRECTAMENTE, EL MENÚ YA CONTIENE TODAS LAS OPCIONES Y YA SE PUEDE ACCEDER A 4 SECUENCIAS DE LUCES, EJECUTARLAS, MODIFICAR SU VELOCIDAD Y DETENERLAS AL PRESIONAR UNA TECLA. EL ARCHIVO MAKEFILE FUE CREADO, SI BIEN NO ESTÁ PROLIJO FUNCIONA CORRECTAMENTE.\
-\FALTAN 4 SECUENCIAS DE LUCES MAS, QUE SIGUIENDO LOS MODELOS YA HECHOS DEBERIAN HACERSE FACIL.
-FALTA IMPLEMENTAR VELOCIDAD INICIAL CON ADC
-. FALTA CONFIGURAR EL MODO DE TRABAJO REMOTO Y HACER EL PROGRAMA CLON SECUNDARIO PARA LA SEGUNDA RASPBERRY.**
 
 
-o	8 FUNCIONES DE LAS SECUENCIAS DE LUCES\
-Auto fantástico - La carrera - El choque - La apilada -¿?-¿?-¿?-¿?\
-o	MENU COMPLETO CON CONTRASEÑA\
 
-o	VARIABLES DE VELOCIDAD PARA CADA SECUENCIA\
-El valor inicial del ADC +- Offset\
-¿Cómo leer instantáneamente el teclado sin que lo afecte el delay?\
+**a. Como opción genere una sección destinada a establecer las velocidades iniciales de las secuencias realizando el ajuste de los potenciómetros.**\
 
-o	MODO DE TRABAJO REMOTO\
-Comunicar 2 raspberry con RS232. Hacer programa secundario que solo lea serie y ejecute secuencia de luces\
+\ **ESTADO DEL PROYECTO (25/11/19): Listo. Falta ponerlo a prueba de manera exahustiva para encontrar algun que otro bug
+
+
