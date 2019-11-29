@@ -98,7 +98,7 @@ void submenu(){  												//Menu para las funciones de luces
 		printf("7- Secuencia extra 3\n ");
 		printf("8- Secuencia extra 4\n ");
 		printf("9- SALIR\n ");
-		//potenciometro=ADC();								//Leo el valor del potenciometro del adc
+		//potenciometro=ADC();								//Leo el valor del potenciometro del adc, descomentar para utilizar potenciometro local
 		printf("Delay base (potenciometro): %dms \n",potenciometro);
 				
 	}

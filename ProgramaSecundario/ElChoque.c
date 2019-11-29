@@ -8,26 +8,15 @@
 #include <unistd.h>
 #include "compartidas.h"
 
-
 void loopChoque();
 void menuchoque();
 int delayChoque=10;
-
 
 /*....................................main............................*/
 
 void ElChoque(){
 	pioInit();    //No olvidarse de pioInit
-	pinMode(LED1,OUTPUT);
-	pinMode(LED2,OUTPUT);
-	pinMode(LED3,OUTPUT);
-	pinMode(LED4,OUTPUT);
-	pinMode(LED5,OUTPUT);
-	pinMode(LED6,OUTPUT);
-	pinMode(LED7,OUTPUT);
-	pinMode(LED8,OUTPUT);
-	pinMode(sw1,INPUT);
-	
+	for(i=0;i<8;i++) pinMode(leds[i],OUTPUT); //Declaro leds como salida
 	menuchoque();
 	loopChoque();
 	apagar();
@@ -35,7 +24,6 @@ void ElChoque(){
 }
 
 /*....................................main............................*/
-
 
 void loopChoque() {
 int i;
@@ -54,8 +42,6 @@ do{
             if(tecla=='q')break;
 		}
 	
-
-
 	}while(tecla !='q'); //Cuando se presiona el pulsador se termina
 	//serialClose(fd);
 }
