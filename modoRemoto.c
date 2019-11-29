@@ -68,8 +68,9 @@ int def=0; //default
 		else {
 			def=0;
 		}
-
-	
+	write('q');
+	usleep(1000);
+	write('q');
 	
 
 }
