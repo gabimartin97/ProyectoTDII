@@ -68,7 +68,7 @@ int def=0; //default
 			def=0;
 		}
 	write('q'); // Enviamos varias 'q' por si hay un error en la reciepcion del byte 'q' y para evitar desincronismo
-	usleep(1000);
+	usleep(10000);
 	write('q');
 	
 
