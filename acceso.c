@@ -56,7 +56,6 @@ int acceso()
 	
 		for(x=0;x<maxlenght;x++){  //Este bucle simplemente limpia toda la cadena entry para poder reescribirla
 		entry[x]='\0';
-		//if(x==(maxlenght - 1)) printf("\n string cleared \n");
 		}
 		
 	
@@ -72,14 +71,14 @@ int acceso()
 		n=n-1;// decrecen los intentos para acertarar
 		}
 	  
-	  //si se acabaron los intentos
+	  
   if(n==1 && strcmp(entry,pass)!= 0){
 		  printf("\n Se acabaron los intentos");
-		  return 0;
+		  return 0; // 0 si se acabaron los intentos
 		 }
-		 //O si se ingreso correctamente
+		
   else{ // printf("\n Bienvenido al sistema");
-    return 1;
+    return 1;  //1 si se ingreso correctamente
     }
 	
 	

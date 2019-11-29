@@ -3,38 +3,21 @@
 #include "EasyPIO.h"
 #include <unistd.h>
 #include "compartidas.h"
-				
-
-
-
+		
 int delaySecuencia1=0; 		//Las flechas arriba y abajo incrementarán la velocidad del bucle
 void loopSecuencia1();
 void menuSecuencia1();
 
-
 /*....................................main............................*/
-
 void secuencia1(){
 	pioInit();   			 //No olvidarse de pioInit
-	pinMode(LED1,OUTPUT);		//Esto podria compactarse con un for
-	pinMode(LED2,OUTPUT);
-	pinMode(LED3,OUTPUT);
-	pinMode(LED4,OUTPUT);
-	pinMode(LED5,OUTPUT);
-	pinMode(LED6,OUTPUT);
-	pinMode(LED7,OUTPUT);
-	pinMode(LED8,OUTPUT);
-	pinMode(sw1,INPUT);
-	
+	for(i=0;i<8;i++) pinMode(leds[i],OUTPUT); //Declaro leds como salida
 	menuSecuencia1();
-	
 	loopSecuencia1();
 	apagar();
 	system("clear");
 }
-
 /*....................................main............................*/
-
 
 void loopSecuencia1() {
 int i,j;

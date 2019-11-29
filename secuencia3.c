@@ -3,14 +3,10 @@
 #include "EasyPIO.h"
 #include <unistd.h>
 #include "compartidas.h"
-				
-
-
 
 int delaySecuencia3=0; 		//Las flechas arriba y abajo incrementarán la velocidad del bucle
 void loopSecuencia3();
 void menuSecuencia3();
-
 
 /*....................................main............................*/
 
@@ -24,7 +20,6 @@ void secuencia3(){
 	system("clear");
 }
 /*....................................main............................*/
-
 
 void loopSecuencia3() {
 int i;
@@ -45,7 +40,6 @@ do{
 }while(tecla !='q');		 //Cuando se pulsa q termina el bucle
 	close_keyboard();		//Para kbhit()
 }
-
 
 void menuSecuencia3(){
 	system("clear");

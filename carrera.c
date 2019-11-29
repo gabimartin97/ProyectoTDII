@@ -10,27 +10,16 @@ int delayCarrera=0;
 void loopcarrera();
 void menucarrera();
 
-
 /*....................................Carrera............................*/
 void Carrera(){
         pioInit(); //No olvidarse de pioInit
-        pinMode(LED1,OUTPUT);
-        pinMode(LED2,OUTPUT);
-        pinMode(LED3,OUTPUT);
-        pinMode(LED4,OUTPUT);
-        pinMode(LED5,OUTPUT);
-        pinMode(LED6,OUTPUT);
-        pinMode(LED7,OUTPUT);
-        pinMode(LED8,OUTPUT);
-        pinMode(sw1,INPUT);
-        
+        for(i=0;i<8;i++) pinMode(leds[i],OUTPUT); //Declaro leds como salida
         menucarrera();
         loopcarrera();
         apagar();
         system("clear");
 }
 /*....................................Carrera............................*/
-
 
 void loopcarrera() {
 int i,k;
@@ -55,7 +44,6 @@ unsigned char tabla[]={   0b00000001,
 char tecla;
 init_keyboard(); //Para kbhit() (keyboardhit)
 
-
 do{
 
 for(k=0;k<16;k++){
@@ -65,8 +53,6 @@ for(k=0;k<16;k++){
                 //a = 0b00000000 + c;
                 digitalWrite(leds[i],tabla[k] & (c));  //hago una AND entre el 1 y el valor de la tabla correspondiente
 }
-                    
-
         tecla=CheckandDelay(&delayCarrera); //Llamo a la funcion CheckandDelay que me retorna la tecla presionada sin importar el delay
         if(tecla=='q')break;
 }
