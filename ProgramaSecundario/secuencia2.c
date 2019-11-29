@@ -10,6 +10,7 @@ void menuSecuencia2();
 
 /*....................................Carrera............................*/
 void secuencia2(){
+	int i;
         pioInit(); //No olvidarse de pioInit
         for(i=0;i<8;i++) pinMode(leds[i],OUTPUT); //Declaro leds como salida
         menuSecuencia2();
