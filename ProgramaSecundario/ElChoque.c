@@ -15,6 +15,7 @@ int delayChoque=10;
 /*....................................main............................*/
 
 void ElChoque(){
+	int i;
 	pioInit();    //No olvidarse de pioInit
 	for(i=0;i<8;i++) pinMode(leds[i],OUTPUT); //Declaro leds como salida
 	menuchoque();
